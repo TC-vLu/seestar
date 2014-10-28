@@ -17,9 +17,7 @@
 
 -export([new/0, decode/2]).
 
--record(buffer, {buffered :: iolist(),
-                 current_size :: non_neg_integer(),
-                 pending_size :: non_neg_integer() | undefined}).
+-include("buffer.hrl").
 -type buffer() :: #buffer{}.
 -export_type([buffer/0]).
 
