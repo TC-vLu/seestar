@@ -16,12 +16,13 @@
 -module(seestar_buffer).
 
 -export([new/0, decode/2]).
--export_type([buffer/0]).
 
 -record(buffer, {buffered :: iolist(),
                  current_size :: non_neg_integer(),
                  pending_size :: non_neg_integer() | undefined}).
--opaque buffer() :: #buffer{}.
+-type buffer() :: #buffer{}.
+-export_type([buffer/0]).
+
 
 %% -------------------------------------------------------------------------
 %% API
