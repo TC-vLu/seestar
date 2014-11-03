@@ -23,7 +23,7 @@
 -type set_keyspace_result() :: #set_keyspace{}.
 -type prepared_result() :: #prepared{}.
 -type schema_change_result() :: #schema_change{}.
--opaque result() :: void
+-type result() :: void
                 | rows_result()
                 | set_keyspace_result()
                 | prepared_result()
