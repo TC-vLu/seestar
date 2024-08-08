@@ -55,7 +55,10 @@ encode_consistency(Value) ->
                      quorum       -> 16#04;
                      all          -> 16#05;
                      local_quorum -> 16#06;
-                     each_quorum  -> 16#07
+                     each_quorum  -> 16#07;
+		     serial       -> 16#08;
+		     local_serial -> 16#09;
+		     local_one    -> 16#0A	 
                  end).
 
 encode_string_map(KVPairs) ->
@@ -113,7 +116,10 @@ decode_consistency(Data) ->
          16#04 -> quorum;
          16#05 -> all;
          16#06 -> local_quorum;
-         16#07 -> each_quorum
+         16#07 -> each_quorum;
+	 16#08 -> serial;
+	 16#09 -> local_serial;
+	 16#0A -> local_one    
       end, Rest}.
 
 decode_string_multimap(Data) ->
