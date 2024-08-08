@@ -78,7 +78,8 @@ encode(#options{}) ->
 
 encode(#'query'{'query' = Query, consistency = Consistency}) ->
     {?QUERY, <<(seestar_types:encode_long_string(Query))/binary,
-               (seestar_types:encode_consistency(Consistency))/binary>>};
+               (seestar_types:encode_consistency(Consistency))/binary,
+	       0>>};
 
 encode(#prepare{'query' = Query}) ->
     {?PREPARE, seestar_types:encode_long_string(Query)};
