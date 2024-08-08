@@ -62,7 +62,7 @@ body(Frame) ->
 
 -spec encode(frame()) -> binary().
 encode(#frame{id = ID, flags = Flags, opcode = Op, body = Body}) ->
-    <<16#01, (encode_flags(Flags)), ID/signed, Op, (size(Body)):32, Body/binary>>.
+    <<16#02, (encode_flags(Flags)), ID/signed, Op, (size(Body)):32, Body/binary>>.
 
 encode_flags(Flags) ->
     lists:foldl(fun(Flag, Byte) -> encode_flag(Flag) bor Byte end, 0, Flags).
